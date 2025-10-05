@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/user', function (Request $request) {
@@ -17,4 +16,4 @@ Route::apiResource('plants', \App\Http\Controllers\PlantController::class);
 //     return $request;
 // });
 
-Route::apiResource('tests', \App\Http\Controllers\TestController::class);
+//Route::apiResource('tests',  \App\Http\Controllers\TestController::class);

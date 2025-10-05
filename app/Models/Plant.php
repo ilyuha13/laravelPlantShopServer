@@ -18,7 +18,7 @@ class Plant extends Model
     use HasFactory;
     protected $fillable = [
         'description',
-        'image_urls',
+        'image_paths',
         'varieties_id',
         'price',
     ];

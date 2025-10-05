@@ -25,7 +25,7 @@ class StoreSpeciesRequest extends FormRequest
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'images' => 'nullable|array',
-            'images.*' => 'string',
+            'images.*' => 'image|max:5120',
         ];
     }
 }

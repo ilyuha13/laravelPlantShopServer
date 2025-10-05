@@ -25,7 +25,7 @@ class StoreVarietyRequest extends FormRequest
             'name' => 'required|string|max:255|unique:varieties,name',
             'description' => 'nullable|string',
             'images' => 'nullable|array',
-            'images.*' => 'string',
+            'images.*' => 'image|max:5120',
             'life_form' => 'nullable|string|max:255',
             'variegation' => 'nullable|string|max:255',
             'species_id' => 'required|exists:species,id',

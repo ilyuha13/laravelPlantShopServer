@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Container\Attributes\Log;
 use Illuminate\Support\Facades\Storage;
 
 class imageService 
@@ -38,6 +39,7 @@ class imageService
 
     public function saveImageFile($file) : ?string
     {
+        error_log("fileService");
         if ($file->isValid()) {
             $path = $file->store('images', 'public');
             return 'storage/' . $path; // Возвращаем путь для доступа через веб

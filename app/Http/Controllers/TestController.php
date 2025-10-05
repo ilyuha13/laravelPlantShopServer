@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateTestRequest;
 use App\Models\Test;
 use App\Services\ImageService;
 
+
 class TestController extends Controller
 {
     protected $imageService;
@@ -29,18 +30,19 @@ class TestController extends Controller
     public function store(StoreTestRequest $request)
     {
         $species = Test::create($request->only(['name', 'description']));
-        $imagePaths = [];
-        foreach($request->input('images') as $image) {
+
+        foreach($request->images as $image) {
             $imagePath = $this->imageService->saveImageFile($image);
             if ($imagePath) {
                 $imagePaths[] = $imagePath;
             }
         }
+
         $species->image_paths = $imagePaths;
         $species->save();
 
         return response()->json($species, 201);
-        //
+ 
     }
 
     /**

@@ -32,11 +32,10 @@ class PlantController extends Controller
     public function store(StorePlantRequest $request)
     {
 
-        $validated = $request->validated();
         $plant = Plant::create($request->safe()->only(['description', 'varieties_id', 'price']));
-        $imagePaths = [];
-        foreach($request->safe()->only('images') as $image) {
-            $imagePath = $this->imageService->saveBase64Image($image);
+   
+        foreach($request->images as $image) {
+            $imagePath = $this->imageService->saveImageFile($image);
             if ($imagePath) {
                 $imagePaths[] = $imagePath;
             }

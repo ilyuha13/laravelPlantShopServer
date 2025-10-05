@@ -22,3 +22,9 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+/app/Http/Controllers/TestController.php
+/app/Http/Requests/StoreTestRequest.php
+/app/Http/Requests/UpdateTestRequest.php
+/app/Models/Test.php
+/database/seeders/TestSeeder.php
+/app/Policies/TestPolicy.php

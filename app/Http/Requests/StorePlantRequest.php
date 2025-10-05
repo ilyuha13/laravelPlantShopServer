@@ -23,8 +23,8 @@ class StorePlantRequest extends FormRequest
     {
         return [
             'description' => 'nullable|string',
-            'image_paths' => 'nullable|array',
-            'image_paths.*' => 'string',
+            'images' => 'nullable|array',
+            'images.*' => 'image|max:5120',
             'varieties_id' => 'required|exists:varieties,id',
             'price' => 'required|numeric|min:0',
             //

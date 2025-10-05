@@ -29,9 +29,9 @@ class SpeciesController extends Controller
      */
     public function store(StoreSpeciesRequest $request) {
         $species = Species::create($request->only(['name', 'description']));
-        $imagePaths = [];
-        foreach($request->input('images') as $image) {
-            $imagePath = $this->imageService->saveBase64Image($image);
+
+        foreach($request->images as $image) {
+            $imagePath = $this->imageService->saveImageFile($image);
             if ($imagePath) {
                 $imagePaths[] = $imagePath;
             }

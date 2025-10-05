@@ -33,11 +33,10 @@ class VarietyController extends Controller
     public function store(StoreVarietyRequest $request)
     {
        $variety = Variety::create(
-            $request->only(['name', 'description', 'species_id', 'image_urls', 'life_form', 'variegation']));
+            $request->only(['name', 'description', 'species_id', 'life_form', 'variegation']));
         
-        $imagePaths = [];
-        foreach($request->input('images') as $image) {
-            $imagePath = $this->imageService->saveBase64Image($image);
+        foreach($request->images as $image) {
+            $imagePath = $this->imageService->saveImageFile($image);
             if ($imagePath) {
                 $imagePaths[] = $imagePath;
             }

@@ -19,7 +19,7 @@ class Variety extends Model
     protected $fillable = [
         'name',
         'description',
-        'image_urls',
+        'image_paths',
         'life_form',
         'variegation',
         'species_id',

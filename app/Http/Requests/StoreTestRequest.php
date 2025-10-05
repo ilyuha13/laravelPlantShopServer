@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class StoreTestRequest extends FormRequest
 {
     /**
@@ -21,12 +22,22 @@ class StoreTestRequest extends FormRequest
      */
     public function rules(): array
     {
+        //dd($this->all());
         return [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'images' => 'required|array',
-            'images.*' => 'file|mimes:jpeg,png,jpg|max:5000' // Максимум 10MB
-            //
+            'images.*' => 'image|max:5120', // Максимальный размер
         ];
+
+    }
+
+    public function messages(): array
+    {
+      return   [
+            'name.required' => 'name is required',
+            'description.required' => 'description is required',
+        ];
+        
     }
 }
